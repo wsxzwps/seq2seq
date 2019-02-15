@@ -46,8 +46,6 @@ class Seq2seq(nn.Module):
 			exit(0)
 		embedding = torch.FloatTensor(np.load(embedding))
 		vocab_size = len(embedding)
-		with open(wordDict,"rb") as fp:
-			self.wordDict = pickle.load(fp)
 		sos_id = 2
 		eos_id = 3
 		self.encoder = EncoderRNN(vocab_size, max_len, hidden_size, 
