@@ -48,8 +48,8 @@ class Seq2seq(nn.Module):
 		vocab_size = len(embedding)
 		with open(wordDict,"rb") as fp:
 			self.wordDict = pickle.load(fp)
-		sos_id = self.wordDict['__GO__']
-		eos_id = self.wordDict['__eou__']
+		sos_id = 2
+		eos_id = 3
 		self.encoder = EncoderRNN(vocab_size, max_len, hidden_size, 
 				input_dropout_p=input_dropout_p, dropout_p=dropout_p, n_layers=n_layers, bidirectional=bidirectional, rnn_cell=rnn_cell, variable_lengths=True,
 				embedding=embedding, update_embedding=False)
