@@ -48,7 +48,7 @@ class Trainer(object):
 		else:
 			print('Saving model...')
 		
-	def train(self, loader, net, crit, evaluator, config):
+	def train(self, loader, net, crit, config):
 		print('start to train...')
 		
 		self.optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, net.parameters()), self.lr)
