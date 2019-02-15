@@ -17,10 +17,10 @@ class CustomDataset(Dataset):
 		self.data = self.readData(datafile, emotion_label_file)
 
 		with open(config['wordDict'],"rb") as fp:
-			self.wordDict = pickle.load(fp)
-		self.sos_id = self.wordDict['__GO__']
-		self.eos_id = self.wordDict['__eou__']
-		self.unk_id = self.wordDict['__UNK__']
+			self.wordDict = pickle.load(fp,encoding='latin1')
+		self.sos_id = 2 
+		self.eos_id = 3
+		self.unk_id = 1
 		# self.isTrans = config['isTrans']
 
 		# self.sm = StyleMarker(config['selfatt'],self.wordDict)
