@@ -62,22 +62,19 @@ class CustomDataset(Dataset):
 		return (question_idx,response_idx,labels_q,labels_r)
 
 
-	def word2index(self, sList, sos=False):
-		resList = []
-		for sentence in sList:
-			indArr = []
-			if sos:
-				indArr.append(self.sos_id)
-			for i in range(len(sentence)):
-				word = sentence[i]
-				if word in self.wordDict:
-					indArr.append(self.wordDict[word])
-				else:
-					indArr.append(self.unk_id)
-			indArr.append(self.eos_id) 
-			indArr = np.array(indArr)
-			resList.append(indArr)
-		return resList
+	def word2index(self, sentence, sos=False):
+		indArr = []
+		if sos:
+			indArr.append(self.sos_id)
+		for i in range(len(sentence)):
+			word = sentence[i]
+			if word in self.wordDict:
+				indArr.append(self.wordDict[word])
+			else:
+				indArr.append(self.unk_id)
+		indArr.append(self.eos_id) 
+		indArr = np.array(indArr)
+		return indArr
 		
 
 
