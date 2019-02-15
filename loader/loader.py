@@ -55,9 +55,10 @@ class CustomDataset(Dataset):
 		return len(self.data)
 
 	def __getitem__(self, idx):
-		question, response, labels_q, labels_r = self.data[idx]
-		question_idx = self.word2index(question)
-		response_idx = self.word2index(response)
+		question_idx = self.word2index(self.data[0][idx])
+		response_idx = self.word2index(self.data[1][idx])
+		labels_q = self.data[2][idx]
+		labels_r = self.data[3][idx]
 		return (question_idx,response_idx,labels_q,labels_r)
 
 
