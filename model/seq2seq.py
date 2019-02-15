@@ -90,8 +90,8 @@ class Criterion(nn.Module):
 		pass
 
 	def forward(self, outputs, inputs):
-		labels = inputs['sentence']
-		lengths = inputs['st_inp_lengths']
+		labels = inputs['question']
+		lengths = inputs['qLengths']
 		decoder_outputs = outputs[0]
 		decoder_outputs = torch.cat([torch.tensor(k).unsqueeze(1) for k in decoder_outputs],1) #[batch, seqlength, vocabsize]
 
