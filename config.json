@@ -1,0 +1,37 @@
+{
+  "expPath": "./exp",
+  "loader": {
+    "batchSize": 64,
+    "isTrans": 0,
+    "wordDict": "./AuxData/wordDict",
+    "trainFile": "./Data/dialogues_train.txt",
+    "trainLabel": "./Data/dialogues_emotion_train.txt",
+    "devFile": "./Data/dialogues_validation.txt",
+    "devLabel": "./Data/dialogues_emotion_validation.txt",
+    "testFile": "./Data/dialogues_test.txt",
+    "testLabel": "./Data/dialogues_emotion_test.txt",
+    "selfatt": "./AuxData/selfatt.pt"
+  },
+  "trainer":{
+    "lr": 1e-4
+  },
+  "model":{
+    "embedding": "./AuxData/word2vec.npy", 
+    "wordDict": "./AuxData/wordDict",
+    "hidden_size": 512, 
+    "style_size": 100,
+    "input_dropout_p": 0, 
+    "dropout_p": 0, 
+    "n_layers": 1, 
+    "bidirectional":1, 
+    "rnn_cell": "gru"
+  },
+  "crit": 0,
+  "evaluator":{
+    "wordDict": "../AuxData/wordDict"
+  },
+  "metric":{
+    "ref_file": "../Data/yelp/reference",
+    "classifier_weight_path": "./exp"
+  }
+}
